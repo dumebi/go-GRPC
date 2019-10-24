@@ -149,10 +149,130 @@ func (m *CalculateResponse) GetResult() int32 {
 	return 0
 }
 
+type ComputeAverage struct {
+	Number               int32    `protobuf:"varint,1,opt,name=number,proto3" json:"number,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ComputeAverage) Reset()         { *m = ComputeAverage{} }
+func (m *ComputeAverage) String() string { return proto.CompactTextString(m) }
+func (*ComputeAverage) ProtoMessage()    {}
+func (*ComputeAverage) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e467884644e524c1, []int{3}
+}
+
+func (m *ComputeAverage) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ComputeAverage.Unmarshal(m, b)
+}
+func (m *ComputeAverage) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ComputeAverage.Marshal(b, m, deterministic)
+}
+func (m *ComputeAverage) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ComputeAverage.Merge(m, src)
+}
+func (m *ComputeAverage) XXX_Size() int {
+	return xxx_messageInfo_ComputeAverage.Size(m)
+}
+func (m *ComputeAverage) XXX_DiscardUnknown() {
+	xxx_messageInfo_ComputeAverage.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ComputeAverage proto.InternalMessageInfo
+
+func (m *ComputeAverage) GetNumber() int32 {
+	if m != nil {
+		return m.Number
+	}
+	return 0
+}
+
+type ComputeAverageRequest struct {
+	Ca                   *ComputeAverage `protobuf:"bytes,1,opt,name=ca,proto3" json:"ca,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *ComputeAverageRequest) Reset()         { *m = ComputeAverageRequest{} }
+func (m *ComputeAverageRequest) String() string { return proto.CompactTextString(m) }
+func (*ComputeAverageRequest) ProtoMessage()    {}
+func (*ComputeAverageRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e467884644e524c1, []int{4}
+}
+
+func (m *ComputeAverageRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ComputeAverageRequest.Unmarshal(m, b)
+}
+func (m *ComputeAverageRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ComputeAverageRequest.Marshal(b, m, deterministic)
+}
+func (m *ComputeAverageRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ComputeAverageRequest.Merge(m, src)
+}
+func (m *ComputeAverageRequest) XXX_Size() int {
+	return xxx_messageInfo_ComputeAverageRequest.Size(m)
+}
+func (m *ComputeAverageRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ComputeAverageRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ComputeAverageRequest proto.InternalMessageInfo
+
+func (m *ComputeAverageRequest) GetCa() *ComputeAverage {
+	if m != nil {
+		return m.Ca
+	}
+	return nil
+}
+
+type ComputeAverageResponse struct {
+	Result               int32    `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ComputeAverageResponse) Reset()         { *m = ComputeAverageResponse{} }
+func (m *ComputeAverageResponse) String() string { return proto.CompactTextString(m) }
+func (*ComputeAverageResponse) ProtoMessage()    {}
+func (*ComputeAverageResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e467884644e524c1, []int{5}
+}
+
+func (m *ComputeAverageResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ComputeAverageResponse.Unmarshal(m, b)
+}
+func (m *ComputeAverageResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ComputeAverageResponse.Marshal(b, m, deterministic)
+}
+func (m *ComputeAverageResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ComputeAverageResponse.Merge(m, src)
+}
+func (m *ComputeAverageResponse) XXX_Size() int {
+	return xxx_messageInfo_ComputeAverageResponse.Size(m)
+}
+func (m *ComputeAverageResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ComputeAverageResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ComputeAverageResponse proto.InternalMessageInfo
+
+func (m *ComputeAverageResponse) GetResult() int32 {
+	if m != nil {
+		return m.Result
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*Calculate)(nil), "calculate.Calculate")
 	proto.RegisterType((*CalculateRequest)(nil), "calculate.CalculateRequest")
 	proto.RegisterType((*CalculateResponse)(nil), "calculate.CalculateResponse")
+	proto.RegisterType((*ComputeAverage)(nil), "calculate.ComputeAverage")
+	proto.RegisterType((*ComputeAverageRequest)(nil), "calculate.ComputeAverageRequest")
+	proto.RegisterType((*ComputeAverageResponse)(nil), "calculate.ComputeAverageResponse")
 }
 
 func init() {
@@ -160,7 +280,7 @@ func init() {
 }
 
 var fileDescriptor_e467884644e524c1 = []byte{
-	// 188 bytes of a gzipped FileDescriptorProto
+	// 268 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x52, 0x4b, 0x4e, 0xcc, 0x49,
 	0x2e, 0xcd, 0x49, 0x2c, 0xc9, 0x2f, 0xd2, 0x87, 0x31, 0x53, 0x0b, 0x92, 0x10, 0x6c, 0xbd, 0x82,
 	0xa2, 0xfc, 0x92, 0x7c, 0x21, 0x4e, 0xb8, 0x80, 0x92, 0x25, 0x17, 0xa7, 0x33, 0x8c, 0x23, 0x24,
@@ -169,10 +289,15 @@ var fileDescriptor_e467884644e524c1 = []byte{
 	0x25, 0x2b, 0x2e, 0x01, 0xb8, 0xd6, 0xa0, 0xd4, 0xc2, 0xd2, 0xd4, 0xe2, 0x12, 0x21, 0x35, 0x2e,
 	0xe6, 0xe4, 0xc4, 0x1c, 0xb0, 0x7e, 0x6e, 0x23, 0x11, 0x3d, 0x84, 0xc5, 0x08, 0x95, 0x20, 0x05,
 	0x4a, 0xda, 0x5c, 0x82, 0x48, 0x7a, 0x8b, 0x0b, 0xf2, 0xf3, 0x8a, 0x53, 0x41, 0x16, 0x15, 0xa5,
-	0x16, 0x97, 0xe6, 0xc0, 0xec, 0x87, 0xf2, 0x8c, 0xa2, 0x90, 0x2c, 0x0a, 0x4e, 0x2d, 0x2a, 0xcb,
-	0x4c, 0x4e, 0x15, 0x72, 0x43, 0x76, 0xb7, 0x34, 0x56, 0x8b, 0x20, 0x4e, 0x92, 0x92, 0xc1, 0x2e,
-	0x09, 0xb1, 0xd3, 0x89, 0x37, 0x8a, 0x1b, 0x29, 0xa4, 0x92, 0xd8, 0xc0, 0x01, 0x64, 0x0c, 0x08,
-	0x00, 0x00, 0xff, 0xff, 0xa5, 0x18, 0x6c, 0x2f, 0x4a, 0x01, 0x00, 0x00,
+	0x16, 0x97, 0xe6, 0xc0, 0xec, 0x87, 0xf2, 0x94, 0x34, 0xb8, 0xf8, 0x9c, 0xf3, 0x73, 0x0b, 0x4a,
+	0x4b, 0x52, 0x1d, 0xcb, 0x52, 0x8b, 0x12, 0xd3, 0xc1, 0x2a, 0xf3, 0x4a, 0x73, 0x93, 0x52, 0x8b,
+	0x60, 0x2a, 0x21, 0x3c, 0x25, 0x27, 0x2e, 0x51, 0x54, 0x95, 0x30, 0x77, 0x69, 0x72, 0x31, 0x25,
+	0x27, 0x42, 0x9d, 0x25, 0x89, 0xec, 0x2c, 0x54, 0xd5, 0x4c, 0xc9, 0x89, 0x4a, 0x06, 0x5c, 0x62,
+	0xe8, 0x66, 0xe0, 0x77, 0x9f, 0xd1, 0x66, 0x46, 0xa4, 0x90, 0x08, 0x4e, 0x2d, 0x2a, 0xcb, 0x4c,
+	0x4e, 0x15, 0x72, 0x43, 0x0e, 0x58, 0x69, 0xac, 0x21, 0x01, 0x71, 0x9b, 0x94, 0x0c, 0x76, 0x49,
+	0xa8, 0xa5, 0xe1, 0x18, 0x9e, 0x57, 0xc0, 0xed, 0x7e, 0xa8, 0x89, 0x8a, 0x78, 0x54, 0x40, 0x8c,
+	0xd5, 0x60, 0x74, 0xe2, 0x8d, 0xe2, 0x46, 0x4a, 0x23, 0x49, 0x6c, 0xe0, 0xa4, 0x61, 0x0c, 0x08,
+	0x00, 0x00, 0xff, 0xff, 0x1b, 0xaa, 0xad, 0x41, 0x44, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -189,6 +314,7 @@ const _ = grpc.SupportPackageIsVersion4
 type CalculateServiceClient interface {
 	// Unary
 	Calculate(ctx context.Context, in *CalculateRequest, opts ...grpc.CallOption) (*CalculateResponse, error)
+	ComputeAverage(ctx context.Context, opts ...grpc.CallOption) (CalculateService_ComputeAverageClient, error)
 }
 
 type calculateServiceClient struct {
@@ -208,10 +334,45 @@ func (c *calculateServiceClient) Calculate(ctx context.Context, in *CalculateReq
 	return out, nil
 }
 
+func (c *calculateServiceClient) ComputeAverage(ctx context.Context, opts ...grpc.CallOption) (CalculateService_ComputeAverageClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_CalculateService_serviceDesc.Streams[0], "/calculate.CalculateService/ComputeAverage", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &calculateServiceComputeAverageClient{stream}
+	return x, nil
+}
+
+type CalculateService_ComputeAverageClient interface {
+	Send(*ComputeAverageRequest) error
+	CloseAndRecv() (*ComputeAverageResponse, error)
+	grpc.ClientStream
+}
+
+type calculateServiceComputeAverageClient struct {
+	grpc.ClientStream
+}
+
+func (x *calculateServiceComputeAverageClient) Send(m *ComputeAverageRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *calculateServiceComputeAverageClient) CloseAndRecv() (*ComputeAverageResponse, error) {
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	m := new(ComputeAverageResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // CalculateServiceServer is the server API for CalculateService service.
 type CalculateServiceServer interface {
 	// Unary
 	Calculate(context.Context, *CalculateRequest) (*CalculateResponse, error)
+	ComputeAverage(CalculateService_ComputeAverageServer) error
 }
 
 // UnimplementedCalculateServiceServer can be embedded to have forward compatible implementations.
@@ -220,6 +381,9 @@ type UnimplementedCalculateServiceServer struct {
 
 func (*UnimplementedCalculateServiceServer) Calculate(ctx context.Context, req *CalculateRequest) (*CalculateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Calculate not implemented")
+}
+func (*UnimplementedCalculateServiceServer) ComputeAverage(srv CalculateService_ComputeAverageServer) error {
+	return status.Errorf(codes.Unimplemented, "method ComputeAverage not implemented")
 }
 
 func RegisterCalculateServiceServer(s *grpc.Server, srv CalculateServiceServer) {
@@ -244,6 +408,32 @@ func _CalculateService_Calculate_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CalculateService_ComputeAverage_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(CalculateServiceServer).ComputeAverage(&calculateServiceComputeAverageServer{stream})
+}
+
+type CalculateService_ComputeAverageServer interface {
+	SendAndClose(*ComputeAverageResponse) error
+	Recv() (*ComputeAverageRequest, error)
+	grpc.ServerStream
+}
+
+type calculateServiceComputeAverageServer struct {
+	grpc.ServerStream
+}
+
+func (x *calculateServiceComputeAverageServer) SendAndClose(m *ComputeAverageResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *calculateServiceComputeAverageServer) Recv() (*ComputeAverageRequest, error) {
+	m := new(ComputeAverageRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 var _CalculateService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "calculate.CalculateService",
 	HandlerType: (*CalculateServiceServer)(nil),
@@ -253,6 +443,12 @@ var _CalculateService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _CalculateService_Calculate_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "ComputeAverage",
+			Handler:       _CalculateService_ComputeAverage_Handler,
+			ClientStreams: true,
+		},
+	},
 	Metadata: "calculator/calculatepb/calculate.proto",
 }

@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"io"
 	"log"
 	"net"
 
@@ -22,6 +23,29 @@ func (*server) Calculate(ctx context.Context, req *calculatepb.CalculateRequest)
 		Result: result,
 	}
 	return res, nil
+}
+
+func (*server) ComputeAverage(stream calculatepb.CalculateService_ComputeAverageServer) error {
+	fmt.Printf("Compute Average function was invoked \n")
+	numbers := 0
+	count := 0
+	for {
+		req, err := stream.Recv()
+		if err == io.EOF {
+			// we have finished the stream
+			average := numbers / count
+			return stream.SendAndClose(&calculatepb.ComputeAverageResponse{
+				Result: int32(average),
+			})
+		}
+		if err != nil {
+			log.Fatalf("Failed to read client stream: %v", err)
+		}
+
+		number := req.GetCa().Number
+		numbers += int(number)
+		count++
+	}
 }
 
 func main() {
